@@ -25,14 +25,32 @@
 
 - 4.3 billion IP addresses in the world (approximately)
 - Step 1: Create a VPC with IPv valid CIDR block
+  - Set location to Ireland
+  - Search for VPC
+  - `Launch VPC Wizard`
+  - `Select`
+  - **Fill in info from screenshot**
+  - `Create VPC`
   - `10.0.0.0/16` - next team member to use `10.10.0.0/16`
 - Step 2: Create internet gateway
+  - Click `internet gateway`
+  - `create internet gateway`
+  - add name tag
+  - `create`
+  - attached ig automatically
   - 2.1: Attach the IG to your VPC
 - Step 3: Create route table
   - 3.1 Edit route and insert your IG
 - Step 4: Create public subnet
-  - `10.0.1.0/24`
+  - `10.102.2.0/24`
   - 4.1: Associate public subnet with our RT
 - Step 5: Create public NACLs
   - set inbound and outbound rules for this
 - Step 6: Create a Security Group for our app
+- Private subnet: `10.102.3.0/24`
+##### AWS Regions and AWS Availability Zones
+- AWS has multiple regions (over 100); each region has at least 2 or more availability zones
+- Restriction. Redundancy. 
+- An Availability Zone (AZ) is one or more discrete data centres with redundant power, networking, and connectivity ... (see rest of screenshot)
+- Differences?
+- **UNFINISHED**
