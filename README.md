@@ -31,9 +31,9 @@
   - Click `Create VPC`
 - Step 2: Create internet gateway
   - Navigate to `Internet Gateways` (on the left-hand side)
-  - `create internet gateway`
-  - add name tag
-  - `create`
+  - Click `create internet gateway`
+  - Add a name tag (e.g. SRE_amy_ig)
+  - Click `create`
   - attached ig automatically
     - If it didn't, click the IG, then click `Actions` -> `Attach VPC`
 - Step 3: Create route table (if not automatically done)
