@@ -24,9 +24,11 @@
   - Search for `VPC` and hit `Enter`
   - Click `Launch VPC Wizard`
   - Click `Select`
-  - **Fill in info from screenshot**
+  - Fill in the IPv4 CIDR Block for the VPC (e.g. `10.102.0.0/16`)
+  - Name the VPC (e.g. `SRE_amy_vpc`)
+  - Give the public subnet IPv4 CIDR (e.g. `10.102.2.0/24`)
+  - Give the subnet name (e.g. `SRE_amy_public_sb`)
   - Click `Create VPC`
-  - IP used: `10.102.0.0/16`
 - Step 2: Create internet gateway
   - Navigate to `Internet Gateways` (on the left-hand side)
   - `create internet gateway`
