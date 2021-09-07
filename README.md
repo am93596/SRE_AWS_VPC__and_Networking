@@ -76,3 +76,5 @@
 - An Availability Zone (AZ) is one or more discrete data centres with redundant power, networking, and connectivity ... (see rest of screenshot)
 - Differences?
 - **UNFINISHED**
+
+> S3 Notes: (https://github.com/am93596/SRE_amy_s3/blob/main/README.md)
