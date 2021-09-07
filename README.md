@@ -52,16 +52,27 @@
     - Click `Add route` and fill in the destination as `0.0.0.0/0`, then select `Internet Gateway` from the Target drop-down menu and select your new IG
     - Click `Save`
 - Step 4: Create public subnet
-  - `10.102.2.0/24`
-  - 4.1: Associate public subnet with our RT
+  - Navigate to `Subnets` and click `Create subnet`
+  - Select the VPC you created earlier
+  - Name the subnet (e.g. SRE_amy_public_sb)
+  - Select Availability Zone eu-west-1a
+  - Set the IPv4 CIDR Block to `10.102.2.0/24`
+  - Click `Create subnet`
+  - Associate public subnet with our RT
+    - Once the subnet has been created, navigate to `Route Tables`, select your route table, and click `Actions` -> `Edit subnet associations`
+    - Select your new subnet and click `Save associations`
+- Repeat Step 4 for the private subnet, with the IPv4 CIDR Block set to `10.102.3.0/24`
 - Step 5: Create public NACL
   - Here are the inbound rules for the public NACL - put your own IP in rule 1 with `/32` after
 ![public_nacl_inbound_rules](https://user-images.githubusercontent.com/88166874/132323496-3b94c814-21ec-4d75-94e7-4daeeed0e249.jpg)
-  - Here are the outbound rules for the public NACL - put the IP for your public subnet in rule 1 with `/24` after
+  - Here are the outbound rules for the public NACL - put the IP for your private subnet in rule 1 with `/24` after
 ![public_nacl_outbound_rules](https://user-images.githubusercontent.com/88166874/132323508-c356f68a-2b94-4fd9-9f23-c1f271796bb9.PNG)
-- Step 6: Create a Security Group for our app
-- Private subnet: `10.102.3.0/24`
-- **UNFINISHED**  
+- Step 6: Create Security Groups for our app
+  - Here are the Security Group inbound rules for the app instance - put your own IP in the rule for port 22, with `/32` after
+![app_security_group_rules](https://user-images.githubusercontent.com/88166874/132345857-6367d4d7-bc32-47ca-b2d2-8f4697b25d64.jpg)
+  - Here are the Security Group inbound rules for the db instance - put the IP for your app machine in the rule for port 27017 with `/32` after, and put your own IP in the rule for port 22 with `/32` after
+ ![db_security_group_rules](https://user-images.githubusercontent.com/88166874/132345001-99f5cefc-0079-48ad-936d-f47676c4e3f5.jpg)
+
 
 ##### AWS Regions and AWS Availability Zones
 - AWS has multiple regions (over 100); each region has at least 2 or more availability zones
