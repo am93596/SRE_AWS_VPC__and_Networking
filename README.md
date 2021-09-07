@@ -23,31 +23,46 @@
 - Network Access Control List (NACL)
 - NACLs are stateless - we have to explicitly allow inbound and outbound rules - they are an added layer of security at subnet level  
 
-- 4.3 billion IP addresses in the world (approximately)
+- 4.3 billion IP addresses in the world (approximately)  
+
 - Step 1: Create a VPC with IPv valid CIDR block
   - Set location to Ireland
-  - Search for VPC
-  - `Launch VPC Wizard`
-  - `Select`
+  - Search for `VPC` and hit `Enter`
+  - Click `Launch VPC Wizard`
+  - Click `Select`
   - **Fill in info from screenshot**
-  - `Create VPC`
-  - `10.0.0.0/16` - next team member to use `10.10.0.0/16`
+  - Click `Create VPC`
+  - IP used: `10.102.0.0/16`
 - Step 2: Create internet gateway
-  - Click `internet gateway`
+  - Navigate to `Internet Gateways` (on the left-hand side)
   - `create internet gateway`
   - add name tag
   - `create`
   - attached ig automatically
-  - 2.1: Attach the IG to your VPC
-- Step 3: Create route table
-  - 3.1 Edit route and insert your IG
+    - If it didn't, click the IG, then click `Actions` -> `Attach VPC`
+- Step 3: Create route table (if not automatically done)
+  - Navigate to `Route Tables` (on the left-hand side)
+  - Click `Create route table`
+  - Fill in the name box: `SRE_amy_vpc_route_table`
+  - Choose the VPC you made from the drop-down menu
+  - Click `Create route table`
+  - Connecting to the IG:
+    - Select the route table
+    - Click `Actions` -> `Edit routes`
+    - Click `Add route` and fill in the destination as `0.0.0.0/0`, then select `Internet Gateway` from the Target drop-down menu and select your new IG
+    - Click `Save`
 - Step 4: Create public subnet
   - `10.102.2.0/24`
   - 4.1: Associate public subnet with our RT
-- Step 5: Create public NACLs
-  - set inbound and outbound rules for this
+- Step 5: Create public NACL
+  - Here are the inbound rules for the public NACL - put your own IP in rule 1 with `/32` after
+![public_nacl_inbound_rules](https://user-images.githubusercontent.com/88166874/132323496-3b94c814-21ec-4d75-94e7-4daeeed0e249.jpg)
+  - Here are the outbound rules for the public NACL - put the IP for your public subnet in rule 1 with `/24` after
+![public_nacl_outbound_rules](https://user-images.githubusercontent.com/88166874/132323508-c356f68a-2b94-4fd9-9f23-c1f271796bb9.PNG)
 - Step 6: Create a Security Group for our app
 - Private subnet: `10.102.3.0/24`
+- **UNFINISHED**  
+
 ##### AWS Regions and AWS Availability Zones
 - AWS has multiple regions (over 100); each region has at least 2 or more availability zones
 - Restriction. Redundancy. 
